@@ -6,6 +6,7 @@ version = 3
 name = "accidents-backend"
 version = "0.1.0"
 dependencies = [
+ "arguments",
  "sqlx",
  "tokio",
  "tokio-postgres",
@@ -54,6 +55,15 @@ name = "allocator-api2"
 version = "0.2.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0942ffc6dcaadf03badf6e6a2d0228460359d5e34b57ccdc720b7382dfbd5ec5"
+
+[[package]]
+name = "arguments"
+version = "0.7.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e63898dbe1952e16886475dedaeaebf28704434fb8fcf05436a0dbe01fc1118d"
+dependencies = [
+ "options",
+]
 
 [[package]]
 name = "arrayvec"
@@ -840,6 +850,12 @@ name = "once_cell"
 version = "1.18.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "dd8b5dd2ae5ed71462c540258bedcb51965123ad7e7ccf4b9a8cafaa4a63576d"
+
+[[package]]
+name = "options"
+version = "0.5.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "011a039a066746d788a814f9d597d09f2230a77677eddf9dfcbf37389e667e41"
 
 [[package]]
 name = "parking_lot"

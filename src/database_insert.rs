@@ -1,11 +1,18 @@
 use tokio::net::TcpStream;
+use arguments;
 use tokio_postgres::{Client, Error, NoTls};
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
+
+    let argumentspre = std::env::args();
+    let argumentsofthisprogram = arguments::parse(argumentspre).unwrap();
+
+    let postgres = argumentsofthisprogram.get::<String>("postgres").expect("No postgres arg specified!");
+
     // Connect to the database.
     let (client, connection) =
-        tokio_postgres::connect("host=localhost user=postgres", NoTls).await?;
+        tokio_postgres::connect(&postgres, NoTls).await?;
 
     // The connection object performs the actual communication with the database,
     // so spawn it off to run on its own.
