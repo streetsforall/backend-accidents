@@ -1,0 +1,19 @@
+[package]
+name = "accidents-backend"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+sqlx = {version = "0.7.1", features = ["postgres","time","sqlx-postgres", "uuid", "rust_decimal", "runtime-tokio"]}
+tokio = {version = "1.29.1", features = ["full"]}
+tokio-postgres = "0.7.8"
+
+[[bin]]
+name = "makedb"
+path = "src/database_insert.rs"
+
+[[bin]]
+name = "server"
+path = "src/main.rs"
