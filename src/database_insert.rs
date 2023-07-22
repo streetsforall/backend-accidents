@@ -1,9 +1,12 @@
 use tokio::net::TcpStream;
 use arguments;
 use tokio_postgres::{Client, Error, NoTls};
+use color_eyre::eyre::Result;
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
+
+    color_eyre::install().unwrap();
 
     let argumentspre = std::env::args();
     let argumentsofthisprogram = arguments::parse(argumentspre).unwrap();
@@ -31,6 +34,8 @@ async fn main() -> Result<(), Error> {
 
     // Now we can execute a simple statement that just returns its parameter.
     let _ = client.execute(makedb, &[]).await;
+
+    println!("Database re-cloned!");
 
     Ok(())
 }

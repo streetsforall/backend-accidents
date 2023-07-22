@@ -7,6 +7,7 @@ edition = "2021"
 
 [dependencies]
 arguments = "0.7.2"
+color-eyre = {version = "0.6", features = ["url", "issue-url", "track-caller", "tracing-error", "color-spantrace", "capture-spantrace"]}
 sqlx = {version = "0.7.1", features = ["postgres","time","sqlx-postgres", "uuid", "rust_decimal", "runtime-tokio"]}
 tokio = {version = "1.29.1", features = ["full"]}
 tokio-postgres = "0.7.8"
